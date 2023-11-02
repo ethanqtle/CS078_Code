@@ -109,4 +109,10 @@ print(print(1), print(2))
 # 2
 # None None
 
+two = print(2)
+# 2
+
+print(two)
+# None
+
 
