@@ -244,3 +244,5 @@ withdraw(a, 17)
 # 8
 check_balance(a)
 # 8
+
+print("\nSection 2.4.9: Reading only")
