@@ -2,6 +2,7 @@
 from operator import mul
 
 def square(x):
+    # unintended error missing return!
     mul(x, x)
 
 def square(x):
