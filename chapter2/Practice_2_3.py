@@ -82,6 +82,92 @@ def minimum_perimeter(area):
     return min(perimeters)
 
 
+area = 80
+print("width(area, 5)\n #", width(area, 5))
+print("perimeter(16, 5)\n #", perimeter(16, 5))
+print("perimeter(10, 8)\n #", perimeter(10, 8))
+print("minimum_perimeter(area)\n #", minimum_perimeter(area))
+
+
+def apply_to_all(map_fn, s):
+    return [map_fn(x) for x in s]
+
+
+def keep_if(filter_fn, s):
+    return [x for x in s if filter_fn(x)]
+
+
+def reduce(reduce_fn, s, initial):
+    reduced = initial
+    for x in s:
+        reduced = reduce_fn(reduced, x)
+    return reduced
+
+
+from operator import mul
+print("reduce(mul, [2, 4, 8], 1)\n #", reduce(mul, [2, 4, 8], 1))
+
+
+def divisors_of(n):
+    divides_n = lambda x: n % x == 0
+    return [1] + keep_if(divides_n, range(2, n))
+
+
+print("divisors_of(12)\n #", divisors_of(12))
+
+from operator import add
+
+
+def sum_of_divisors(n):
+    return reduce(add, divisors_of(n), 0)
+
+
+def perfect(n):
+    return sum_of_divisors(n) == n
+
+
+print("keep_if(perfect, range(1, 1000))\n #",
+       keep_if(perfect, range(1, 1000)))
+
+# Conventional names for higher-order functions
+apply_to_all = lambda map_fn, s: list(map(map_fn, s))
+keep_if = lambda filter_fn, s: list(filter(filter_fn, s))
+
+from functools import reduce
+from operator import mul
+
+
+def product(s):
+    return reduce(mul, s)
+
+
+print("product([1, 2, 3, 4, 5])\n #",
+      product([1, 2, 3, 4, 5]))
+
+print("\nSection 2.3.4")
+print("digits\n #", digits)
+# [1, 8, 2, 8]
+
+print("2 in digits\n #", 2 in digits)
+# True
+
+print("1828 not in digits\n #", 1828 not in digits)
+# True
+
+print("digits[0:2]\n #", digits[0:2])
+# [1, 8]
+
+print("digits[1:]\n #", digits[1:])
+# [8, 2, 8]
+print("\nSection 2.3.5")
+
+print("'I am string!'\n# ", 'I am string!')
+# I am string!
+print("I've got an apostrophe")
+# I've got an apostrophe
+print("'您好'\n# ", '您好')
+# 您好
+
 print("\nSection 2.3.6")
 
 
