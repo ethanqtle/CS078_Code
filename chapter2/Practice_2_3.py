@@ -1,3 +1,87 @@
+print("\nSection 2.3.1")
+digits = [1, 8, 2, 8]
+print("len(digits)\n #", len(digits))
+print("digits[3]\n #", digits[3])
+
+print("[2, 7] + digits * 2\n #", [2, 7] + digits * 2)
+pairs = [[10, 20], [30, 40]]
+print("pairs[1]\n# ", pairs[1])
+print("pairs[1][0]\n #", pairs[1][0])
+
+print("\nSection 2.3.2")
+
+
+def count(s, value):
+    """Count the number of occurrences of value in sequence s."""
+    total, index = 0, 0
+    while index < len(s):
+        if s[index] == value:
+            total = total + 1
+        index = index + 1
+    return total
+
+
+print("count(digits, 8)\n #", count(digits, 8))
+
+
+def count(s, value):
+    """Count the number of occurrences of value in sequence s."""
+    total = 0
+    for elem in s:
+        if elem == value:
+            total = total + 1
+    return total
+
+
+print("count(digits, 8)\n #", count(digits, 8))
+
+pairs = [[1, 2], [2, 2], [2, 3], [4, 4]]
+same_count = 0
+for x, y in pairs:
+    if x == y:
+        same_count = same_count + 1
+print("same_count\n #", same_count)
+
+range(1, 10)  # Includes 1, but not 10
+print("range(1, 10)\n #", range(1, 10))
+print("list(range(5, 8))\n #", list(range(5, 8)))
+print("list(range(4))\n #", list(range(4)))
+
+for _ in range(3):
+    print('Go Bears!')
+
+print("\nSection 2.3.3")
+odds = [1, 3, 5, 7, 9]
+print("[x+1 for x in odds]\n", [x + 1 for x in odds])
+print("[x for x in odds if 25 % x == 0]\n #", [x for x in odds if 25 % x == 0])
+
+
+def divisors(n):
+    return [1] + [x for x in range(2, n) if n % x == 0]
+
+
+print("divisors(4)\n #", divisors(4))
+print("divisors(12)\n #", divisors(12))
+
+print("[n for n in range(1, 1000) if sum(divisors(n)) == n]\n #",
+      [n for n in range(1, 1000) if sum(divisors(n)) == n])
+
+
+def width(area, height):
+    assert area % height == 0
+    return area // height
+
+
+def perimeter(width, height):
+    return 2 * width + 2 * height
+
+
+def minimum_perimeter(area):
+    heights = divisors(area)
+    perimeters = [perimeter(width(area, h), h) for h in heights]
+    return min(perimeters)
+
+
 print("\nSection 2.3.6")
 
 
@@ -221,24 +305,27 @@ def join_link(s, separator):
 print("join_link(four, ", ")\n #", join_link(four, ", "))
 # 1, 2, 3, 4
 
+
 def partitions(n, m):
     """Return a linked list of partitions of n using parts of up to m.
     Each partition is represented as a linked list.
     """
     if n == 0:
-        return link(empty, empty) # A list containing the empty partition
+        return link(empty, empty)  # A list containing the empty partition
     elif n < 0 or m == 0:
         return empty
     else:
-        using_m = partitions(n-m, m)
+        using_m = partitions(n - m, m)
         with_m = apply_to_all_link(lambda s: link(m, s), using_m)
-        without_m = partitions(n, m-1)
+        without_m = partitions(n, m - 1)
         return extend_link(with_m, without_m)
+
         
 def print_partitions(n, m):
     lists = partitions(n, m)
     strings = apply_to_all_link(lambda s: join_link(s, " + "), lists)
     print(join_link(strings, "\n"))
+
 
 print("print_partitions(6, 4)")
 print_partitions(6, 4)
