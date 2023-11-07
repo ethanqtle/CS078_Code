@@ -168,6 +168,33 @@ print("I've got an apostrophe")
 print("'您好'\n# ", '您好')
 # 您好
 
+city = 'Berkeley'
+print("len(city)\n #", len(city))
+# 8
+print("city[3]\n #", city[3])
+# k
+print("'Berkeley' + ', CA'\n#", 'Berkeley' + ', CA')
+# Berkeley, CA
+
+print("'Shabu ' * 2\n# ", 'Shabu ' * 2)
+# Shabu Shabu
+
+print("'here' in \"Where's Waldo?\"\n #", 'here' in "Where's Waldo?")
+# True
+my_str = """The Zen of Python
+claims, Readability counts.
+Read more: import this."""
+
+print("my_str\n #", my_str)
+# The Zen of Python
+# claims, Readability counts.
+# Read more: import this.
+
+print("str(2) + ' is an element of ' + str(digits)\n #", str(2) + ' is an element of ' + str(digits))
+# 2 is an element of [1, 8, 2, 8]
+
+
+
 print("\nSection 2.3.6")
 
 
