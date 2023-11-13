@@ -1,5 +1,6 @@
 # Section 1.4.1
 
+
 def pressure(v, t, n):
     """Compute the pressure in pascals of an ideal gas.
 
@@ -9,8 +10,9 @@ def pressure(v, t, n):
     t -- absolute temperature in degrees kelvin
     n -- particles of gas
     """
-    k = 1.38e-23 # Boltzmann's constant
+    k = 1.38e-23  # Boltzmann's constant
     return n * k * t / v
+
 
 help(pressure)
 # Help on function pressure in module __main__:
@@ -26,6 +28,7 @@ help(pressure)
 
 # Section 1.4.2
 
+
 def pressure(v, t, n=6.023e23):
     """Compute the pressure in pascals of an ideal gas.
 
@@ -34,8 +37,9 @@ def pressure(v, t, n=6.023e23):
     >>> pressure(1, 273, 1)
     273.0
     """
-    k = 1.38e-23 # Boltzmann's constant
+    k = 1.38e-23  # Boltzmann's constant
     return n * k * t / v
+
 
 pressure(1, 273.15)
 # 2270.351781
